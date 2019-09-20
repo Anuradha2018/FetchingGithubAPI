@@ -1,0 +1,22 @@
+.issue {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.issue:hover {
+  background: #ccc;
+}
+
+.detail {
+  flex: 1;
+}
+
+.detail .title {
+  text-overflow: ellipsis;
+  width: 600px;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+}

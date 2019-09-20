@@ -1,16 +1,40 @@
 import React from "react";
 
-const Issue = props => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faComment } from "@fortawesome/free-solid-svg-icons";
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+
+import "./style.css";
+
+const Issue = ({ issue, closedIssues, openedIssues }) => {
   return (
-    <form onSubmit={props.getIssue}>
-      <p>Issue</p>
-      <input
-        style={{ marginTop: "20px", display: "block" }}
-        type="text"
-        name="param"
-      ></input>
-      <button>Submit </button>
-    </form>
+    <div className="issue">
+      <div className="detail">
+        <h6>
+          <span>
+            <FontAwesomeIcon icon={faExclamationCircle}></FontAwesomeIcon>
+          </span>
+          {openedIssues} Open &nbsp; &nbsp;
+          <span>
+            <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+          </span>
+          {closedIssues} Closed
+        </h6>
+        <h5 className="title" title={issue.title}>
+          {issue.title}
+        </h5>
+      </div>
+
+      <div className="comment">
+        <span></span>
+        <span>
+          <FontAwesomeIcon icon={faComment} />
+          {issue.comments}
+        </span>
+      </div>
+    </div>
   );
 };
+
 export default Issue;

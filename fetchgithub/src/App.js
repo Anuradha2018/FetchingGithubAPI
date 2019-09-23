@@ -7,6 +7,7 @@ import axios from "axios";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import IssueCount from "./components/IssueCount";
 
 class App extends Component {
   state = {
@@ -59,37 +60,32 @@ class App extends Component {
   // };
 
   getRepositoryIssues = async (user, repositoryName) => {
-    try {
-      const { data } = await axios(
-        `https://api.github.com/repos/${user}/${repositoryName}/issues`
-      );
+    const { data } = await axios(
+      `https://api.github.com/repos/${user}/${repositoryName}/issues`
+    );
 
-      const issues = data.map(issue => {
-        return {
-          id: issue.id,
-          title: issue.title,
-          comments: issue.comments,
-          state: issue.state
-        };
-      });
+    const issues = data.map(issue => {
+      return {
+        id: issue.id,
+        title: issue.title,
+        comments: issue.comments,
+        state: issue.state
+      };
+    });
 
-      const openedIssues = issues.filter(issue => issue.state === "open")
-        .length;
-      const closedIssues = issues.filter(issue => issue.state === "closed")
-        .length;
+    const openedIssues = issues.filter(issue => issue.state === "open").length;
+    const closedIssues = issues.filter(issue => issue.state === "closed")
+      .length;
 
-      this.setState({ issues, closedIssues, openedIssues });
-    } catch (error) {
-      console.log(error.message);
-    }
+    this.setState({ issues, closedIssues, openedIssues });
   };
 
-  handleInput = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  handleInput = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
+  handleSubmit = event => {
+    event.preventDefault();
     const { user, repo } = this.state;
     this.getRepositoryIssues(user, repo);
   };
@@ -124,14 +120,12 @@ class App extends Component {
           </Button>
         </form>
 
-        <p></p>
+        {this.state.issues.length ? (
+          <IssueCount openedIssues={openedIssues} closedIssues={closedIssues} />
+        ) : null}
+
         {issues.map(issue => (
-          <Issue
-            key={issue.id}
-            issue={issue}
-            openIssue={closedIssues}
-            closedIssue={openedIssues}
-          />
+          <Issue key={issue.id} issue={issue} />
         ))}
       </Container>
     );

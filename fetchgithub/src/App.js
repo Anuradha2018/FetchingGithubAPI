@@ -11,15 +11,16 @@ import Button from "@material-ui/core/Button";
 import "./App.css";
 class App extends Component {
   state = {
-    user: "",
-    repo: "",
+    user: "facebook",
+    repo: "react",
     issues: [],
     openedIssues: 0,
     closedIssues: 0
   };
 
   componentDidMount() {
-    this.getRepositoryIssues("facebook", "react");
+    const { user, repo } = this.state;
+    this.getRepositoryIssues(user, repo);
   }
 
   getRepositoryIssues = async (user, repositoryName) => {
@@ -33,7 +34,8 @@ class App extends Component {
           id: issue.id,
           title: issue.title,
           comments: issue.comments,
-          state: issue.state
+          state: issue.state,
+          number: issue.number
         };
       });
 
@@ -103,7 +105,7 @@ class App extends Component {
 
           {issues.map(issue => (
             <div key={issue.id}>
-              <Issue issue={issue} />
+              <Issue repo={repo} user={user} issue={issue} />
             </div>
           ))}
         </div>

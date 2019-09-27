@@ -24,3 +24,7 @@
   color: green;
   margin-right: 5px;
 }
+.link {
+  text-decoration: none;
+  color: black;
+}

@@ -1,16 +1,20 @@
 .issue {
   display: flex;
   padding: 15px;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e2e4e8;
+  align-items: center;
 }
 
 .issue:hover {
-  background: #ccc;
+  background: #f7f8fa;
 }
 
 .detail {
   flex: 1;
+}
+
+.open.octicon {
+  color: #28a745;
 }
 
 .detail .title {
@@ -19,6 +23,7 @@
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
+  color: #24292f;
 }
 .icon {
   color: green;
@@ -27,4 +32,17 @@
 .link {
   text-decoration: none;
   color: black;
+}
+
+.issue-comment {
+  color: #586069;
+  position: relative;
+  font-size: 12px;
+}
+
+.issue-comment svg {
+  position: relative;
+  left: -5px;
+  top: 4px;
+  fill: #586069;
 }

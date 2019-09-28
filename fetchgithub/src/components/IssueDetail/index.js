@@ -3,7 +3,6 @@ import axios from "axios";
 import querystring from "query-string";
 import "./style.css";
 import IssueComments from "../IssueComments/index";
-import Container from "@material-ui/core/Container";
 
 class IssueDetail extends Component {
   constructor() {
@@ -51,14 +50,12 @@ class IssueDetail extends Component {
 
   render() {
     return (
-      <Container>
-        <div className="issue-detail">
-          <div className="title">
-            <h1 className="header">{this.state.title}</h1>
-            <IssueComments comments={this.state.comments} />
-          </div>
+      <div className="issue-detail">
+        <div className="title">
+          <h1 className="header">{this.state.title}</h1>
         </div>
-      </Container>
+        <IssueComments comments={this.state.comments} />
+      </div>
     );
   }
 }

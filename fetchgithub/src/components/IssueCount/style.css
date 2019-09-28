@@ -1,5 +1,16 @@
 .issueCount {
   display: flex;
-  margin: 20px 10px;
-  margin-left: 15px;
+  padding: 20px 15px;
+  background-color: #f7f8fa;
+  border-bottom: 1px solid #e2e4e8;
+  font-size: 14px;
+}
+
+.issue-opened {
+  color: #24292f;
+  font-weight: 600;
+}
+
+.issue-closed {
+  color: #586069;
 }

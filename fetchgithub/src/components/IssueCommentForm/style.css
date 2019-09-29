@@ -36,8 +36,42 @@
 .comment-form .comment-body textarea {
   width: 100%;
   border-color: #d1d5da;
-  min-height: 80px;
-  padding: 8px;
+  min-height: 100px;
+  height: 120px;
+  padding: 5px;
   font-size: 13px;
   border-radius: 4px;
 }
+
+.comment-footer .submitButton {
+  background-color: #94d3a2;
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  line-height: 15px;
+  color: white;
+  vertical-align: middle;
+  background-size: 110% 110%;
+  border: 1px solid rgba(27, 31, 35, 0.2);
+  border-radius: 0.25em;
+  float: right;
+}
+/* .comment-footer .submitButton:active {
+  background-color: #269f42;
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  line-height: 15px;
+  color: white;
+  vertical-align: middle;
+  background-size: 110% 110%;
+  border: 1px solid rgba(27, 31, 35, 0.2);
+  border-radius: 0.25em;
+  float: right;
+} */

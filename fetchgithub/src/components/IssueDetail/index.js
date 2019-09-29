@@ -68,7 +68,11 @@ class IssueDetail extends Component {
         </div>
         <hr className="divider" />
 
-        <IssueCommentForm />
+        <IssueCommentForm
+          user={this.state.user}
+          repo={this.state.repo}
+          issueNumber={this.state.issueNumber}
+        />
       </div>
     );
   }

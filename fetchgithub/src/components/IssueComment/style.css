@@ -1,9 +1,73 @@
-* {
-  box-sizing: border-box;
+.issue-comment {
+  display: flex;
 }
-div {
-  display: block;
+
+.issue-comment .avatar {
+  width: 40px;
+  height: 40px;
 }
+
+.issue-comment .comment-box {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d1d5da;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  flex: 1;
+  margin-left: 16px;
+  position: relative;
+}
+
+.issue-comment .comment-box::before {
+  content: "";
+  height: 50px;
+  width: 2px;
+  background: #e1e4e8;
+  position: absolute;
+  z-index: -5;
+  bottom: -30px;
+  left: 8px;
+}
+
+.comment-box .comment-header {
+  background-color: #f6f8fa;
+  padding: 8px;
+  border-bottom: 1px solid #d1d5da;
+  position: relative;
+}
+
+.comment-header::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: calc(50% - 10px);
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #d1d5da;
+  border-left: 0;
+}
+
+.comment-header .user {
+  color: #24292e;
+  font-weight: 600;
+}
+
+.comment-box .comment-body {
+  background-color: #fff;
+  padding: 8px 8px 20px;
+  border-bottom: 1px solid #d1d5da;
+}
+
+.comment-box .comment-footer {
+  background-color: #fff;
+  padding: 15px;
+}
+
+.comment-box .comment-body p {
+  line-height: 1.4rem;
+}
+/* 
 .commentPage {
   display: flex;
   justify-content: center;
@@ -99,3 +163,26 @@ img {
   margin-left: auto;
   margin-top: 40px;
 }
+.commentBoxPost {
+  display: flex;
+  width: 75%;
+  justify-content: center;
+  margin-left: 380px;
+  margin-top: 40px;
+}
+.text-area {
+  display: block;
+  width: 100%;
+  min-height: 100px;
+  max-height: 500px;
+  padding: 8px;
+  resize: vertical;
+  border-bottom: 1px dashed #dfe2e5;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  max-width: 100%;
+  height: 100px;
+  margin: 0;
+  line-height: 1.6;
+  background-color: #fafbfc;
+} */

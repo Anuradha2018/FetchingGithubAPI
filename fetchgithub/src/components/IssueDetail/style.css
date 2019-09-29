@@ -1,20 +1,26 @@
 .issue-detail {
-  display: flex;
-  margin: auto;
-  flex-direction: column;
+  max-width: 735px;
+  margin: 0 auto;
+}
 
-  justify-content: center;
+.issue-detail .title {
+  margin-bottom: 15px;
 }
-.title {
-  margin-top: 10px;
-  display: flex;
+.issue-detail .title .header {
+  font-size: 22px;
+  color: #24282d;
 }
-.header {
-  margin: auto;
-  font-weight: 400;
-  line-height: 1.125;
-  word-wrap: break-word;
+
+.issue-id {
+  color: #6a737d;
 }
-h1 {
-  display: block;
+
+.issue-comments {
+  width: 100%;
+}
+
+.divider {
+  margin-bottom: 16px;
+  border: 0;
+  border-top: 1px solid #e1e4e8;
 }

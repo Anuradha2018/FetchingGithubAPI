@@ -3,7 +3,7 @@ import React from "react";
 import "./style.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const IssueCount = ({ closedIssues, openedIssues }) => {

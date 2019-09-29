@@ -2,20 +2,23 @@ import React, { Component } from "react";
 import axios from "axios";
 import querystring from "query-string";
 import "./style.css";
-import IssueComments from "../IssueComments/index";
+import IssueComment from "../IssueComment/index";
+import IssueCommentForm from "../IssueCommentForm";
 
 class IssueDetail extends Component {
   constructor() {
     super();
     this.state = {
       title: null,
-      comments: []
+      comments: [],
+      issueNumber: null
     };
   }
   componentDidMount() {
     const { match } = this.props;
     const { number } = match.params;
     const { repo, user } = querystring.parse(this.props.location.search);
+
     this.getIssueDetail(user, repo, number);
     this.getIssueComment(user, repo, number);
   }
@@ -28,7 +31,8 @@ class IssueDetail extends Component {
       this.setState({
         title: data.title,
         user: user,
-        repo: repositoryName
+        repo: repositoryName,
+        issueNumber
       });
       // console.log("Data", data);
       console.log(this.state, data);
@@ -49,12 +53,22 @@ class IssueDetail extends Component {
   };
 
   render() {
+    const { title, issueNumber } = this.state;
     return (
       <div className="issue-detail">
         <div className="title">
-          <h1 className="header">{this.state.title}</h1>
+          <h1 className="header">
+            {title} <span className="issue-id">{`#${issueNumber}`}</span>
+          </h1>
         </div>
-        <IssueComments comments={this.state.comments} />
+        <div className="issue-comments">
+          {this.state.comments.map(comment => (
+            <IssueComment key={comment.id} comment={comment} />
+          ))}
+        </div>
+        <hr className="divider" />
+
+        <IssueCommentForm />
       </div>
     );
   }

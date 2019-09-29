@@ -9,13 +9,11 @@ import App from "./App";
 import IssueDetail from "./components/IssueDetail";
 
 import NotFound from "./components/NotFound/index";
-import IssueComments from "./components/IssueComments/index";
 
 const AppRouter = () => (
   <Router>
     <div>
       <Switch>
-        <Route path="/comments" component={IssueComments} />
         <Route path="/issues/:number" component={IssueDetail} />
         <Route exact path="/" component={App} />
         <Route path="/not-found" component={NotFound} />

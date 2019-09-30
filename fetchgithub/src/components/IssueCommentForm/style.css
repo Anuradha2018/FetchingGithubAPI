@@ -1,5 +1,6 @@
 .comment-form {
   display: flex;
+  margin-bottom: 40px;
 }
 .comment-form .avatar {
   width: 40px;

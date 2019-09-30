@@ -28,7 +28,11 @@ export default class IssueCommentForm extends Component {
   render() {
     return (
       <div className="comment-form">
-        <img src="" alt="" className="avatar" />
+        <img
+          src={`https://avatars0.githubusercontent.com/u/37504269?v=4`}
+          alt=""
+          className="avatar"
+        />
         <div className="comment-box">
           <div className="comment-header">
             <span className="write">Write</span>

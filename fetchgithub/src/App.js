@@ -4,15 +4,17 @@ import IssueCount from "./components/IssueCount";
 import Issue from "./components/Issue";
 
 import axios from "axios";
+
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
 import "./App.css";
+
 class App extends Component {
   state = {
-    user: "facebook",
-    repo: "react",
+    user: "",
+    repo: "",
     issues: [],
     openedIssues: 0,
     closedIssues: 0

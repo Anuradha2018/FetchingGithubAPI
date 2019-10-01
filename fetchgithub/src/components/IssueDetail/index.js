@@ -11,7 +11,8 @@ class IssueDetail extends Component {
     this.state = {
       title: null,
       comments: [],
-      issueNumber: null
+      issueNumber: null,
+      state: null
     };
   }
   componentDidMount() {
@@ -32,7 +33,8 @@ class IssueDetail extends Component {
         title: data.title,
         user: user,
         repo: repositoryName,
-        issueNumber
+        issueNumber,
+        state: data.state
       });
       // console.log("Data", data);
       console.log(this.state, data);
@@ -53,14 +55,35 @@ class IssueDetail extends Component {
   };
 
   render() {
-    const { title, issueNumber } = this.state;
+    const { title, issueNumber, state } = this.state;
     return (
       <div className="issue-detail">
         <div className="title">
-          <h1 className="header">
+          <h1 className="titleHeader">
             {title} <span className="issue-id">{`#${issueNumber}`}</span>
           </h1>
         </div>
+
+        <div className="issueStatus">
+          <span className="state">
+            <svg
+              className="issue-icon"
+              viewBox="0 0 14 16"
+              version="1.1"
+              width="14"
+              height="16"
+              aria-hidden="true"
+            >
+              <path
+                fillRule="evenodd"
+                d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"
+              ></path>
+            </svg>
+            &nbsp;
+            {state}
+          </span>
+        </div>
+
         <div className="issue-comments">
           {this.state.comments.map(comment => (
             <IssueComment key={comment.id} comment={comment} />

@@ -1,33 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
-import { useAuth } from "../context/auth";
-import axios from "axios";
+// import { useAuth } from "./../../context/auth";
+// import axios from "axios";
 const Login = () => {
-  const [isLoggedIn, setLoggedIn] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const { setAuthTokens } = useAuth();
-  const referer = props.location.state.referer || "/";
+  //   // const [isLoggedIn, setLoggedIn] = useState(false);
+  //   // const [isError, setIsError] = useState(false);
+  //   const [userName, setUserName] = useState("");
+  //   const [password, setPassword] = useState("");
+  //   const { setAuthTokens } = useAuth();
+  //   // const referer = props.location.state.referer || "/";
 
-  function postLogin() {
-    axios
-      .post("https://www.somePlace.com/auth/login", {
-        userName,
-        password
-      })
-      .then(result => {
-        if (result.status === 200) {
-          setAuthTokens(result.data);
-          setLoggedIn(true);
-        } else {
-          setIsError(true);
-        }
-      })
-      .catch(e => {
-        setIsError(true);
-      });
-  }
+  //   function postLogin() {
+  //     axios
+  //       .post("", {
+  //         userName,
+  //         password
+  //       })
+  //       .then(result => {
+  //         if (result.status === 200) {
+  //           setAuthTokens(result.data);
+  //           // setLoggedIn(true);
+  //         } else {
+  //           // setIsError(true);
+  //         }
+  //       })
+  //       .catch(e => {
+  //         //   setIsError(true);
+  //       });
+  //   }
   return (
     <div className="login">
       <div className="header">
@@ -52,29 +52,14 @@ const Login = () => {
         <div className="auth-form">
           <form className="auth-form-body">
             <label htmlFor="login_field">Username or email address</label>
-            <input
-              type="text"
-              name="login"
-              className="username"
-              onChange={e => {
-                setUserName(e.target.value);
-              }}
-            />
+            <input type="text" name="login" className="username" />
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              className="password"
-              onChange={e => {
-                setPassword(e.target.value);
-              }}
-            />
+            <input type="password" name="password" className="password" />
             <input
               type="submit"
               name="submit"
               className="signIn"
               value="Sign in"
-              onClick={postLogin}
             />
           </form>
         </div>

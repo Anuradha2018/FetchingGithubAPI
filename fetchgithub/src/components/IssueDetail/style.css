@@ -10,6 +10,11 @@
   font-size: 22px;
   color: #24282d;
 }
+.titleHeader {
+  margin-top: 50px;
+  width: 85%;
+  margin-left: -4px;
+}
 
 .issue-id {
   color: #6a737d;
@@ -17,10 +22,38 @@
 
 .issue-comments {
   width: 100%;
+  margin-top: 20px;
 }
 
 .divider {
   margin-bottom: 16px;
   border: 0;
   border-top: 1px solid #e1e4e8;
+}
+.issueStatus {
+  background-color: #2cbe4e;
+  position: relative;
+  display: table-cell;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 15px;
+  color: white;
+  vertical-align: middle;
+  background-size: 110% 110%;
+  margin-bottom: 20px;
+  border-radius: 0.25em;
+}
+.issueStatus svg {
+  fill: white;
+  vertical-align: text-bottom;
+}
+.state {
+  display: inline-block;
+  padding: 4px 8px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 3px;
 }

@@ -13,8 +13,8 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    user: "",
-    repo: "",
+    user: "facebook",
+    repo: "react",
     issues: [],
     openedIssues: 0,
     closedIssues: 0
@@ -46,7 +46,11 @@ class App extends Component {
       const closedIssues = issues.filter(issue => issue.state === "closed")
         .length;
 
-      this.setState({ issues, closedIssues, openedIssues });
+      this.setState({
+        issues,
+        closedIssues,
+        openedIssues
+      });
     } catch (error) {
       console.log(error.message);
     }
